@@ -45,7 +45,8 @@ namespace WebApplication1.Controllers
         {
             var complex = new SportComplex()
             {
-                Name = newComplex.Name
+                Name = newComplex.Name,
+                CountOfEmployees = newComplex.CountOfEmployees
             };
 
             _SportComplexRepository.Save(complex);
