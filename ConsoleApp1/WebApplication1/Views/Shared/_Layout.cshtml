@@ -9,6 +9,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", required: false)
+    @RenderSection("Style", required: false)
 </head>
 <body>
     <header>
@@ -42,6 +43,22 @@
                         <li>
                             <a class="nav-link text-dark"
                                href="@Url.Action("Add", "Adress")">добавить адресс</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark"
+                               href="@Url.Action("Index", "SportComplex")">Список спорт-комплексов</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark"
+                               href="@Url.Action("AddComplex", "SportComplex")">Добавить спорт-комплекс</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark"
+                               href="@Url.Action("Index", "SportEvent")">Спортивные мероприятия</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark"
+                               href="@Url.Action("AddEvent", "SportEvent")">Добавить мероприятие</a>
                         </li>
                     </ul>
                 </div>

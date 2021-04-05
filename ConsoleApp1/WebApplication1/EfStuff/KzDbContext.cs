@@ -12,7 +12,8 @@ namespace WebApplication1.EfStuff
         public DbSet<Citizen> Citizens { get; set; }
 
         public DbSet<Adress> Adress { get; set; }
-
+        public DbSet<SportComplex> SportComplex { get; set; }
+        public DbSet<SportEvent> SportEvent { get; set; }
         public KzDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

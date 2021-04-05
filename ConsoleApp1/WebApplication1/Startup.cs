@@ -41,6 +41,14 @@ namespace WebApplication1
                 new AdressRepository(x.GetService<KzDbContext>())
                 );
 
+            services.AddScoped<SportComplexRepository>(x =>
+                new SportComplexRepository(x.GetService<KzDbContext>())
+                );
+
+            services.AddScoped<SportEventRepository>(x =>
+                new SportEventRepository(x.GetService<KzDbContext>())
+                );
+
             RegisterAutoMapper(services);
 
             services.AddControllersWithViews();

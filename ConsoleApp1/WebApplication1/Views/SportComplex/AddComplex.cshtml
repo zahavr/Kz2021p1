@@ -1,0 +1,15 @@
+﻿@model SportComplexViewModel
+
+<h1>
+    Add complex
+</h1>
+
+<form action="@Url.Action("CreateComplex", "SportComplex")" method="post">
+    <div>
+        Имя: @Html.TextBoxFor(x => x.Name)
+    </div>
+    <div>
+        <input type="submit" value="Создать комплекс" />
+    </div>
+</form>
+
