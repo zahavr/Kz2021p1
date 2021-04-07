@@ -21,7 +21,6 @@ namespace WebApplication1.EfStuff
             modelBuilder.Entity<Citizen>()
                 .HasOne(x => x.House)
                 .WithMany(x => x.Citizens);
-
             base.OnModelCreating(modelBuilder);
         }
     }

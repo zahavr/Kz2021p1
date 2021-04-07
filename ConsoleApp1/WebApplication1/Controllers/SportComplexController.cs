@@ -25,6 +25,7 @@ namespace WebApplication1.Controllers
                     Name = x.Name
                 }).ToList();
             return View(viewModels);
+    
         }
 
         [HttpGet]
