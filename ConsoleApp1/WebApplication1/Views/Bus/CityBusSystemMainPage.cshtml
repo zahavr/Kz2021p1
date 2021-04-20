@@ -1,10 +1,59 @@
-﻿<ul class="navbar-nav flex-grow-1">
-  
-    <li class="list-group-item">@Html.ActionLink("New bus", "BusPark", "Bus")</li>
-    <li class="list-group-item">@Html.ActionLink("Edit bus", "Edit", "Bus")</li>
-    <li class="list-group-item">@Html.ActionLink("Bus park", "Index", "Bus")</li>
+﻿@*@section PoliceMain {
+    <link rel="stylesheet" type="text/css" src="~/css/police/main.css">
+    <script src="~/js/Police/police.js"></script>
+}*@
 
-    <li class="list-group-item">@Html.ActionLink("New route", "RoutesMap", "TripRoute")</li>
-    <li class="list-group-item">@Html.ActionLink("Routes", "Index", "TripRoute")</li>
-    
-</ul>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">    
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="first-slide" style="height: 600px; width: 100%;" src="~/Image/cbs_main.jpg" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">                  
+                    
+                    <div id="modal-custom">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a type="button" class="btn btn-dark" href="@Url.Action("Login", "Citizen")">Sign In</a>
+                            <a type="button" class="btn btn-dark" href="@Url.Action("Register", "Citizen")">Sign Up</a>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>    
+</div>
+
+
+<div class="row mt-5">
+    <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+        <img class="rounded-circle" src="~/Image/cbs_order.jpg" alt="Generic placeholder image" width="140" height="140">
+        <h2>Our buses</h2>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <a type="button" class="btn btn-dark" href="@Url.Action("BusParkPage", "Bus")">Details</a>
+    </div>
+    <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+        <img class="rounded-circle" src="~/Image/cbs_routes.jpg" alt="Generic placeholder image" width="140" height="140">
+        <h2>Our routes</h2>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <a type="button" class="btn btn-dark" href="@Url.Action("RoutesMapPage", "Bus")">Details</a>
+    </div>
+    <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+        <img class="rounded-circle" src="~/Image/cbs_info.jpg" alt="Generic placeholder image" width="140" height="140">
+        <h2>Our reports</h2>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <a type="button" class="btn btn-dark" href="@Url.Action("BusParkPage", "Bus")">Details</a>
+    </div>
+</div>
+
+
+
+@*<ul class="navbar-nav flex-grow-1">
+
+        <li class="list-group-item">@Html.ActionLink("New bus", "BusPark", "Bus")</li>
+        <li class="list-group-item">@Html.ActionLink("Edit bus", "Edit", "Bus")</li>
+        <li class="list-group-item">@Html.ActionLink("Bus park", "Index", "Bus")</li>
+
+        <li class="list-group-item">@Html.ActionLink("New route", "RoutesMap", "TripRoute")</li>
+        <li class="list-group-item">@Html.ActionLink("Routes", "Index", "TripRoute")</li>
+
+    </ul>*@

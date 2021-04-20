@@ -96,6 +96,10 @@ namespace WebApplication1
                 new TripRouteRepository(x.GetService<KzDbContext>())
                 );
 
+            services.AddScoped<OrderRepository>(x =>
+                new OrderRepository(x.GetService<KzDbContext>())
+                );
+
 
             services.AddScoped<SportComplexRepository>(x =>
                 new SportComplexRepository(x.GetService<KzDbContext>())
@@ -153,13 +157,23 @@ namespace WebApplication1
             services.AddScoped<IMapper>(x => mapper);
 
             var configurationExpNew = new MapperConfigurationExpression();
-
             configurationExpNew.CreateMap<Bus, BusParkViewModel>();
             configurationExpNew.CreateMap<BusParkViewModel, Bus>();
-
             var configNew = new MapperConfiguration(configurationExpNew);
             var mapperNew = new Mapper(configNew);
             services.AddScoped<IMapper>(x => mapperNew);
+
+
+            //var configurationExpNewOrder = new MapperConfigurationExpression();
+            //configurationExpNewOrder.CreateMap<Order, OrderViewModel>();
+            //configurationExpNewOrder.CreateMap<OrderViewModel, Order>();
+            //var configNewOrder = new MapperConfiguration(configurationExpNewOrder);
+            //var mapperNewOrder = new Mapper(configNewOrder);
+            //services.AddScoped<IMapper>(x => mapperNewOrder);
+
+
+
+
 
             var configurationExpTrip = new MapperConfigurationExpression();
 

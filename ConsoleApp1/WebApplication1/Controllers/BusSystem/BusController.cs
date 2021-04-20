@@ -8,22 +8,39 @@ using WebApplication1.EfStuff.Model;
 using WebApplication1.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Http;
+using AutoMapper;
 
 namespace WebApplication1.Controllers.BusSystem
 {
     public class BusController : Controller
     {
         private BusRepository _busRepository;
+        private IMapper _mapper { get; set; }
 
-        public BusController(BusRepository busRepository)
+        public BusController(BusRepository busRepository, IMapper mapper)
         {
             _busRepository = busRepository;
+            _mapper = mapper;
         }
 
+        [HttpGet("/cbs/main")]
         public IActionResult CityBusSystemMainPage()
         {            
             return View();
         }
+
+        [HttpGet("/cbs/bus_park")]
+        public IActionResult BusParkPage()
+        {
+            return View();
+        }
+
+        [HttpGet("/cbs/routes_map")]
+        public IActionResult RoutesMapPage()
+        {
+            return View();
+        }
+
 
         public IActionResult Index()
         {
