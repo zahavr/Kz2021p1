@@ -1,0 +1,100 @@
+﻿@model OrderViewModel
+
+<h2>Make order</h2>
+
+<form action="@Url.Action("MakeOrder", "Order")" method="post">
+    <br>
+    <div>
+        Name: <input class="form-control" type="text" name="Name">
+        @*Bus model: @Html.TextBoxFor(x => x.Model, new { Class = "form-control" })*@
+    </div>
+    <br>
+    <div>
+        Model: <input class="form-control" type="text" name="Model">
+        @*Bus type: @Html.TextBoxFor(x => x.Type, new { Class = "form-control" })*@
+    </div>
+    <br>
+    <div>
+        Period: <input class="form-control" type="text" name="Period">
+        @*Bus capacity: @Html.TextBoxFor(x => x.Capacity, new { Class = "form-control" })*@
+    </div>
+    <div>
+        <button class="btn btn-secondary" type="submit">Add</button>
+    </div>
+    <br>
+</form>
+
+@*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+@*<form asp-action="Checkout" method="post">*@
+<!--<form action="@Url.Action("MakeOrder", "Order")" method="post">
+    <h3>Citizen</h3>
+    <div class="form-group">-->
+@*<label>Name:</label><input asp-for="Name" class="form-control" />*@
+<!--<label>Name:</label><input class="form-control" />
+</div>
+<h3>Bus</h3>
+<div class="form-group">
+    <label>Model:</label>
+    <select id="cars" name="cars">
+        <option value="volvo">volvo</option>
+        <option value="saab">saab</option>
+        <option value="fiat">fiat</option>
+        <option value="ikar">ikar</option>
+    </select>-->
+@*<input class="form-control" />*@
+<!--</div>
+<div class="form-group">
+    <label>Type:</label>
+    <select id="cars" name="cars">
+        <option value="volvo">ordinary</option>
+        <option value="saab">special</option>
+        <option value="fiat">city</option>
+        <option value="audi">school</option>
+        <option value="audi">administration</option>
+        <option value="audi">touristic</option>
+    </select>-->
+@*<input class="form-control" />*@
+<!--</div>
+<div class="form-group">
+    <label>Capacity:</label>
+    <select id="cars" name="cars">
+        <option value="volvo">1-30</option>
+        <option value="saab">31-50</option>
+        <option value="fiat">51-100</option>
+
+    </select>-->
+@*<input class="form-control" />*@
+<!--</div>
+<div class="form-group">
+    <label>Price:</label>
+    <select id="cars" name="cars">
+        <option value="volvo">10</option>
+        <option value="saab">30</option>
+        <option value="fiat">50</option>
+        <option value="audi">100</option>
+    </select>-->
+@*<input class="form-control" />*@
+<!--</div>
+<div class="form-group">
+    <label>Period:</label>
+    <select id="cars" name="cars">
+        <option value="volvo">10</option>
+        <option value="saab">20</option>
+        <option value="fiat">30</option>
+        <option value="audi">40</option>
+    </select>-->
+@*<input class="form-control" />*@
+<!--</div>-->
+@*<h3>Options</h3>
+    <div class="checkbox">
+        <label>
+            <input/> Gift wrap these items
+        </label>
+    </div>*@
+<!--<div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Complete Order" />
+    </div>
+</form>-->
+
+
