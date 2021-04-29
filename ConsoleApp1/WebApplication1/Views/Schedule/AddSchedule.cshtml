@@ -1,0 +1,18 @@
+﻿@model ScheduleViewModel
+
+<h1>
+    Добавить спорт-комплекс
+</h1>
+
+<form action="@Url.Action("Create", "Schedule")" method="post">
+     @foreach(var day in Model.days)
+     {
+         <p>День недели: @day.name</p>
+         <input type="number" asp-for="@day.hall.hallNumber">
+     }
+    <div class="form-group">
+    </div>
+    <div>
+        <input class="btn btn-primary" type="submit" value="Создать комплекс" />
+    </div>
+</form>
