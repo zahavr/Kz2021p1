@@ -10,5 +10,6 @@ namespace WebApplication1.EfStuff.Model
         public string Name { get; set; }
         public int CountOfEmployees { get; set; }
         public virtual List<SportSection> Sections { get; set; }
+        Schedule schedule { get; set; }
     }
 }

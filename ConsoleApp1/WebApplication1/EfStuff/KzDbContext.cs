@@ -26,11 +26,14 @@ namespace WebApplication1.EfStuff
         public DbSet<Pupil> Pupils { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
 
-        public DbSet<SportComplex> SportComplex { get; set; }
-        public DbSet<SportEvent> SportEvent { get; set; }
         public DbSet<Bus> Buses { get; set; }
         public DbSet<TripRoute> TripRoute { get; set; }
-
+        //-----
+        public DbSet<Schedule> schedules { get; set; }
+        public DbSet<dayOfWeek> dayOfWeeks { get; set; }
+        public DbSet<TimeRanges> timeRanges { get; set;}
+        public DbSet<Hall> halls { get; set; }
+        //----- 
         public KzDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -94,6 +97,9 @@ namespace WebApplication1.EfStuff
                 .HasMany(pc => pc.PoliceCallHistories)
                 .WithOne(c => c.Citizen);
 
+            modelBuilder.Entity<Schedule>()
+                .HasMany(x => x.days)
+                .WithOne(x => x.Schedule);
             base.OnModelCreating(modelBuilder);
         }
 

@@ -10,5 +10,6 @@ namespace WebApplication1.Models
         public long Id { get; set; }
         public string Name { get; set; }
         public int CountOfEmployees { get; set; }
+        ScheduleViewModel schedule { get; set; }
     }
 }

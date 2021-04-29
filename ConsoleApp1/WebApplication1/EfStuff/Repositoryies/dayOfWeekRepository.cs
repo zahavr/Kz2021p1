@@ -6,11 +6,10 @@ using WebApplication1.EfStuff.Model;
 
 namespace WebApplication1.EfStuff.Repositoryies
 {
-    public class SportEventRepository : BaseRepository<SportEvent>
+    public class dayOfWeekRepository: BaseRepository<dayOfWeek>
     {
-        public SportEventRepository(KzDbContext kzDbContext) : base(kzDbContext)
+        public dayOfWeekRepository(KzDbContext kzDbContext) : base(kzDbContext)
         {
-         
         }
     }
 }

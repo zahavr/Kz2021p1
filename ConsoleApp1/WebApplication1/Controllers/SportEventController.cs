@@ -9,6 +9,8 @@ using WebApplication1.EfStuff.Model;
 using WebApplication1.EfStuff.Repositoryies;
 using WebApplication1.Models;
 using System.IO;
+using System.Net;
+using System.Threading;
 
 namespace WebApplication1.Controllers
 {
@@ -48,22 +50,23 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                string wwRootPath = _hostEnvironment.WebRootPath;
+                var fileExtention = Path.GetExtension(newEvent.imagefile.FileName);
                 string fileName = Path.GetFileNameWithoutExtension(newEvent.imagefile.FileName);
-                string extension = Path.GetExtension(newEvent.imagefile.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                newEvent.img = fileName;
-                string path = Path.Combine(wwRootPath + "/Image/", fileName);
-                using (var fileStream = new FileStream(path, FileMode.Create))
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + fileExtention;
+                var path = Path.Combine(
+                    _hostEnvironment.WebRootPath,
+                    "Image", fileName);
+                using (var fileStream = new FileStream(path, FileMode.OpenOrCreate))
                 {
                     await newEvent.imagefile.CopyToAsync(fileStream);
                 }
+                newEvent.img = $"/{fileName}";
             }
             var _event = new SportEvent()
             {
                 title = newEvent.title,
                 description = newEvent.description,
-                date = newEvent.date,
+                date = newEvent.date,  
                 img = newEvent.img
             };
 
@@ -71,6 +74,7 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Index");
         }
+       
         public ActionResult ShowEvent(long? id)
         {
             var _event = _SportEventRepository.Get((long)id);
@@ -95,27 +99,53 @@ namespace WebApplication1.Controllers
             }
         }
 
-        // GET: SportEventController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ActionResult EditEvent(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var _event = _SportEventRepository.Get((long)id);
+            if (_event == null)
+            {
+                return NotFound();
+            }
+            var newEvent = new SportEventViewModel();
+            newEvent.Id = _event.Id;
+            newEvent.title = _event.title;
+            newEvent.description = _event.description;
+            return View(newEvent);
         }
 
-        // POST: SportEventController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditEvent(SportEventViewModel model)
         {
-            try
+            var _event = _SportEventRepository.Get(model.Id);
+            _event.title = model.title;
+            _event.description = model.description;
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                _SportEventRepository.Save(_event);    
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
+        public JsonResult Remove(long id)
+        {
+            Thread.Sleep(2000);
+
+            var _event = _SportEventRepository.Get(id);
+            if (_event == null)
+            {
+                return Json(false);
+            }
+
+            _SportEventRepository.Remove(_event);
+
+            return Json(true);
+        }
         // GET: SportEventController/Delete/5
         public ActionResult Delete(int id)
         {

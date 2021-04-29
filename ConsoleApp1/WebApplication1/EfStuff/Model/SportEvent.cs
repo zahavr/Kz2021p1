@@ -13,7 +13,5 @@ namespace WebApplication1.EfStuff.Model
         public string description { get; set; }
         public string img { get; set; }
         public string date { get; set; }
-        [NotMapped]
-        public IFormFile imagefile { get; set; }
     }
 }
